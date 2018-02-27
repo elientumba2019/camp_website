@@ -13,6 +13,11 @@ app.set("view engine" , "ejs");
 
 
 
+//setting body parser to be used
+app.use(bodyParser.urlencoded({extended : true}));
+
+
+
 //landing page route
 app.get('/' , function(req , res) {
     res.render('landing');
@@ -31,6 +36,13 @@ app.get('/campgrounds' , function(req , res) {
 app.post('/campgrounds' , function(req , res) {
     res.send("Post route camp ground");
 });
+
+
+
+//route for the form to add a new camp
+app.get('/campgrounds/new' , function(req, res) {
+    
+})''
 
 
 
