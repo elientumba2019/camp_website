@@ -26,6 +26,13 @@ app.get('/campgrounds' , function(req , res) {
 
 
 
+//campground ground for adding new camps
+app.post('/campgrounds' , function(req , res) {
+    res.render('campgrounds' , {campground : campground});
+});
+
+
+
 //server listener
 app.listen(process.env.PORT , process.env.IP , function(){
     console.log("Server started and Running ar : " + process.env.PORT);
