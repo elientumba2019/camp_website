@@ -34,7 +34,17 @@ app.get('/campgrounds' , function(req , res) {
 
 //campground ground for adding new camps
 app.post('/campgrounds' , function(req , res) {
-    res.send("Post route camp ground");
+    
+    //getting values form the form
+    var nameC = req.body.name;
+    var imageC = req.body.image;
+    var newCamp = {name : nameC , image : imageC};
+    
+    //pusing new camp to the array;
+    campground.push(newCamp);
+    
+    //redirect to the campground page
+    res.redirect('/campgrounds');
 });
 
 
