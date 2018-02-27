@@ -41,8 +41,8 @@ app.post('/campgrounds' , function(req , res) {
 
 //route for the form to add a new camp
 app.get('/campgrounds/new' , function(req, res) {
-    
-})''
+    res.render('new');
+});
 
 
 
