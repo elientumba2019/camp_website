@@ -20,8 +20,8 @@ app.get('/' , function(req , res) {
 
 
 //camp ground route
-app.get('/campgroud' , function(req , res) {
-    res.render('campground' , {campground : campground});
+app.get('/campgrounds' , function(req , res) {
+    res.render('campgrounds' , {campground : campground});
 });
 
 
