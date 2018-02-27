@@ -2,5 +2,8 @@
     
     
    <% campground.forEach(function(camp){ %>
-            <li><%= camp.name %> </li>
+       <div>
+           <h4><%= camp.name %></h4>
+           <img src = '<%= camp.image %>'></img>
+       </div>
       <%  }); %>
