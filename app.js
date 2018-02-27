@@ -19,7 +19,7 @@ app.get('/' , function(req , res) {
 
 
 
-//camp ground route
+//campground route
 app.get('/campgrounds' , function(req , res) {
     res.render('campgrounds' , {campground : campground});
 });
@@ -28,7 +28,7 @@ app.get('/campgrounds' , function(req , res) {
 
 //campground ground for adding new camps
 app.post('/campgrounds' , function(req , res) {
-    res.render('campgrounds' , {campground : campground});
+    res.send("Post route camp ground");
 });
 
 
