@@ -1,0 +1,14 @@
+{
+  "name": "yelp_project",
+  "version": "1.0.0",
+  "description": "yelp project",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "yelp"
+  ],
+  "author": "Elie Nsampi ntumba",
+  "license": "MIT"
+}
