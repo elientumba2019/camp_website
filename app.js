@@ -1,5 +1,6 @@
 var express = require("express");
 var app = express();
+var bodyParser = require("body-parser");
 
 var campground = [
         {name : "New camp1" , image : "image1"},
