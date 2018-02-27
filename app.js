@@ -3,6 +3,9 @@ var app = express();
 
 
 //landing page route
+app.get('/' , function(req , res) {
+    res.send("TODO : implement landing page");
+});
 
 
 
