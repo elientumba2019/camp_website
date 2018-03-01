@@ -5,19 +5,50 @@ var mongoose = require("mongoose"); //importing mongoose
 
 
 
-var campground = [
-        {name : "New camp1" , image : "image1"},
-        {name : "New camp2" , image : "image2"},
-        {name : "New camp3" , image : "image3"}
-        ];
+//connecting mongoose
+mongoose.connect("mongodb://localhost/yelp_camp");
+
+//setting body parser to be used
+app.use(bodyParser.urlencoded({extended : true}));
 
 //setting the view engine
 app.set("view engine" , "ejs");
 
 
 
-//setting body parser to be used
-app.use(bodyParser.urlencoded({extended : true}));
+var campgroundArray = [
+        {name : "New camp1" , image : "image1"},
+        {name : "New camp2" , image : "image2"},
+        {name : "New camp3" , image : "image3"}
+        ];
+
+
+
+
+//defining the database schema
+var campgroundSchema = new mongoose.Schema({
+    
+    name : String,
+    image : String
+    
+});
+
+
+//modeling the schema
+var Campground = mongoose.model("Campground" , campgroundSchema);
+
+
+
+//adding a camp temporary
+Campground.create(campgroundArray[1] , function(err , inserted) {
+    if(err){
+        console.log(err)
+    }
+    else{
+        console.log("Newly created background");
+        console.log(inserted);
+    }
+});
 
 
 
@@ -30,8 +61,9 @@ app.get('/' , function(req , res) {
 
 //campground route
 app.get('/campgrounds' , function(req , res) {
-    res.render('campgrounds' , {campground : campground});
+    res.render('campgrounds' , {campground : campgroundArray});
 });
+
 
 
 
@@ -44,7 +76,7 @@ app.post('/campgrounds' , function(req , res) {
     var newCamp = {name : nameC , image : imageC};
     
     //pusing new camp to the array;
-    campground.push(newCamp);
+    campgroundArray.push(newCamp);
     
     //redirect to the campground page
     res.redirect('/campgrounds');
@@ -52,10 +84,12 @@ app.post('/campgrounds' , function(req , res) {
 
 
 
+
 //route for the form to add a new camp
 app.get('/campgrounds/new' , function(req, res) {
     res.render('new');
 });
+
 
 
 
