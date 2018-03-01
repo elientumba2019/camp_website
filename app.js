@@ -124,11 +124,12 @@ app.get('/campgrounds/new' , function(req, res) {
 
 
 //route for showing a specific camp
+// show more information about a campground
 app.get('/campgrounds/:id' , function(req, res) {
     
     //find camp given the id 
     //render the template
-    res.send("This will be the showpage one day evntually")
+    res.render("show");
 });
 
 
