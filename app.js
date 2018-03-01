@@ -73,7 +73,7 @@ app.get('/campgrounds' , function(req , res) {
         }
         else{
             //seding the retrieved results to the page
-            res.render('campgrounds' , {campground : results});
+            res.render('index' , {campground : results});
         }
     });
     
