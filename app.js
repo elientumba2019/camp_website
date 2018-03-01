@@ -48,6 +48,7 @@ Campground.create(campgroundArray[1] , function(err , inserted) {
 
 
 //landing page route
+//index shows all campground
 app.get('/' , function(req , res) {
     res.render('landing');
 });
@@ -77,6 +78,7 @@ app.get('/campgrounds' , function(req , res) {
 
 
 //campground ground for adding new camps
+//add new campground to the database
 app.post('/campgrounds' , function(req , res) {
     
     //getting values form the form
@@ -106,8 +108,18 @@ app.post('/campgrounds' , function(req , res) {
 
 
 //route for the form to add a new camp
+//show the form to create the database
 app.get('/campgrounds/new' , function(req, res) {
     res.render('new');
+});
+
+
+
+
+
+//route for showing a specific camp
+app.get('/campgrounds/:id' , function(req, res) {
+    res.send("This will be the showpage one day evntually")
 });
 
 
