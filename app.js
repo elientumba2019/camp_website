@@ -31,6 +31,7 @@ var Campground = mongoose.model("Campground" , campgroundSchema);
 
 
 
+
 //adding a camp temporary
 /*
 Campground.create(campgroundArray[1] , function(err , inserted) {
@@ -83,8 +84,19 @@ app.post('/campgrounds' , function(req , res) {
     var imageC = req.body.image;
     var newCamp = {name : nameC , image : imageC};
     
-    //pusing new camp to the array;
-    campgroundArray.push(newCamp);
+    
+    //create a new camp and save it to the database
+    Campground.create(newCamp , function(err , newlyCamp) {
+        if(err){
+            console.log("error occured while inserting data in the database : " + err);
+            
+        }
+        else{
+            console.log("newly inserted element : ");
+            console.log(newlyCamp);
+        }
+    });
+    
     
     //redirect to the campground page
     res.redirect('/campgrounds');
