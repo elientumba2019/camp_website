@@ -16,14 +16,6 @@ app.set("view engine" , "ejs");
 
 
 
-var campgroundArray = [
-        {name : "New camp1" , image : "image1"},
-        {name : "New camp2" , image : "image2"},
-        {name : "New camp3" , image : "image3"}
-        ];
-
-
-
 
 //defining the database schema
 var campgroundSchema = new mongoose.Schema({
