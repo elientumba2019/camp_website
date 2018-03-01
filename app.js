@@ -40,6 +40,7 @@ var Campground = mongoose.model("Campground" , campgroundSchema);
 
 
 //adding a camp temporary
+/*
 Campground.create(campgroundArray[1] , function(err , inserted) {
     if(err){
         console.log(err)
@@ -49,6 +50,7 @@ Campground.create(campgroundArray[1] , function(err , inserted) {
         console.log(inserted);
     }
 });
+*/
 
 
 
@@ -61,7 +63,21 @@ app.get('/' , function(req , res) {
 
 //campground route
 app.get('/campgrounds' , function(req , res) {
-    res.render('campgrounds' , {campground : campgroundArray});
+    //get all campground from the database 
+    Campground.find({} , function(err , results){
+        
+        if(err){
+            //printing error message
+            console.log("Error encountered whilte retriving files from the database");
+    
+        }
+        else{
+            //seding the retrieved results to the page
+            res.render('campgrounds' , {campground : results});
+        }
+    });
+    
+    //res.render('campgrounds' , {campground : campgroundArray});
 });
 
 
