@@ -21,8 +21,8 @@ app.set("view engine" , "ejs");
 var campgroundSchema = new mongoose.Schema({
     
     name : String,
-    image : String
-    
+    image : String,
+    description : String
 });
 
 
@@ -33,8 +33,14 @@ var Campground = mongoose.model("Campground" , campgroundSchema);
 
 
 //adding a camp temporary
+var campX = {
+    
+    name : "Good camp",
+    image : "No image",
+    description : "The perfect camp in the east"
+}
 /*
-Campground.create(campgroundArray[1] , function(err , inserted) {
+Campground.create(campX , function(err , inserted) {
     if(err){
         console.log(err)
     }
@@ -119,6 +125,9 @@ app.get('/campgrounds/new' , function(req, res) {
 
 //route for showing a specific camp
 app.get('/campgrounds/:id' , function(req, res) {
+    
+    //find camp given the id 
+    //render the template
     res.send("This will be the showpage one day evntually")
 });
 
