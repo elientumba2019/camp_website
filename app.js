@@ -22,7 +22,7 @@ var campgroundSchema = new mongoose.Schema({
     
     name : String,
     image : String,
-    description : String
+    desc : String
 });
 
 
@@ -37,7 +37,7 @@ var campX = {
     
     name : "Good camp",
     image : "No image",
-    description : "The perfect camp in the east"
+    desc : "The perfect camp in the east"
 }
 /*
 Campground.create(campX , function(err , inserted) {
@@ -90,7 +90,8 @@ app.post('/campgrounds' , function(req , res) {
     //getting values form the form
     var nameC = req.body.name;
     var imageC = req.body.image;
-    var newCamp = {name : nameC , image : imageC};
+    var descP = req.body.desc;
+    var newCamp = {name : nameC , image : imageC , desc : descP};
     
     
     //create a new camp and save it to the database
@@ -127,9 +128,22 @@ app.get('/campgrounds/new' , function(req, res) {
 // show more information about a campground
 app.get('/campgrounds/:id' , function(req, res) {
     
-    //find camp given the id 
-    //render the template
-    res.render("show");
+    //find camp given the id
+    var idCamp = req.params.id;
+    Campground.findById(idCamp , function(err , found) {
+        
+        if(err){
+            console.log("Error encountered while retrieving the user info");
+        }
+        else{
+            
+            //render the template
+             res.render("show" , {campground : found});
+        }
+    });
+    
+    
+    
 });
 
 
@@ -139,3 +153,6 @@ app.get('/campgrounds/:id' , function(req, res) {
 app.listen(process.env.PORT , process.env.IP , function(){
     console.log("Server started and Running ar : " + process.env.PORT);
 });
+
+
+
