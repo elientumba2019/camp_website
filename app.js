@@ -4,6 +4,9 @@ var bodyParser = require("body-parser");
 var mongoose = require("mongoose"); //importing mongoose
 
 
+//requiring files
+var Campground = require('./models/campground'); //campground file
+
 
 //connecting mongoose
 mongoose.connect("mongodb://localhost/yelp_camp");
@@ -13,23 +16,6 @@ app.use(bodyParser.urlencoded({extended : true}));
 
 //setting the view engine
 app.set("view engine" , "ejs");
-
-
-
-
-//defining the database schema
-var campgroundSchema = new mongoose.Schema({
-    
-    name : String,
-    image : String,
-    desc : String
-});
-
-
-//modeling the schema
-var Campground = mongoose.model("Campground" , campgroundSchema);
-
-
 
 
 //adding a camp temporary
