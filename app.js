@@ -6,7 +6,11 @@ var mongoose = require("mongoose"); //importing mongoose
 
 //requiring files
 var Campground = require('./models/campground'); //campground file
+var seedDB = require('./seeds'); //seeding the database file
 
+
+//seeding the databse
+seedDB();
 
 //connecting mongoose
 mongoose.connect("mongodb://localhost/yelp_camp");
